@@ -33,10 +33,22 @@
        <div class="container">
            <h1>Android app</h1>
        </div>
+       <ul></ul>
         <!-- // <script type="text/javascript" src="cordova.js"></script> -->
         <script type="text/javascript" src="js/index.js"></script>
+       <script type="text/javascript" src="jquery.js"></script>
         <script type="text/javascript">
-            app.initialize();
+//            app.initialize();
+$(document).ready(function($) {
+
+    $.getJSON('http://mysafeinfo.com/api/data?list=englishmonarchs&format=json',  function(json, textStatus) {
+        $.each(json, function(index, val) {
+            $('ul').append('<li>' + val.nm +  '</li>')
+        });
+    });
+
+});
+
         </script>
     </body>
 </html>
